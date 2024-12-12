@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class cars(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
+    car_name=models.CharField(max_length=100 , default="Old Car")
     text=models.TextField(max_length=240)
     photo=models.ImageField(upload_to='photos/',blank=False, null=False)
     created_at=models.DateTimeField(auto_now_add=True)
