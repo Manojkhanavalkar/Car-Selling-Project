@@ -4,14 +4,14 @@
 Cars and companies
 {% endblock %}
 {% block content %}
-<a class="btn-btn-primary" href="{% url 'car_create' %}">Create New Car Ad</a>
+<a class="btn btn-primary m-4" href="{% url 'car_create' %}">Create New Car Ad</a>
 <div class="container row gap-3">
-    {% for car  in cars_list %}
+    {% for car  in cars %}
     <div class="card" style="width: 18rem;">
-        <img src="{{ car.photo.url }}" class="card-img-top" alt="...">
+        <img src="{{car.photo.url}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{car.car_name}}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-text">{{car.text}}</p>
           <a href="{% url 'car_edit' car.id %}" class="btn btn-primary">Edit</a>
           <a href="{% url 'car_delete' car.id %}" class="btn btn-danger">Delete</a>
         </div>

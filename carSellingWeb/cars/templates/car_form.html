@@ -4,5 +4,17 @@
 Cars and companies
 {% endblock %}
 {% block content %}
-<h1 class="text-center  mt-4">Welcome to Chai's Django project</h1>
+<h1 class="text-center  mt-4">Welcome to My Django project</h1>
+<h2>{%if from.instance.pk %} 
+        Edit Ad 
+    {%else%} 
+        Create Ad 
+    {% endif %}
+    <form  method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-warning" type="submit">Create AD</button>
+    </form>
+    <a href="{% url 'cars_list'%}">Back to Other ads</a>
+</h2>
 {% endblock %}

@@ -25,7 +25,7 @@ def car_create(request):
             car=form.save(commit=False)
             car.user=request.user
             car.save()
-            return redirect('car_list')
+            return redirect('cars_list')
     else:
         form=CarForm()
     return render(request,'car_form.html',{'form':form})
@@ -38,7 +38,7 @@ def car_edit(request,car_id):
             car=form.save(commit=False)
             car.user =request.user
             car.save()
-            return redirect('car_list')
+            return redirect('cars_list')
     else:
         form= CarForm(instance=car)
     return render(request,'car_form.html',{'form':form})
@@ -47,5 +47,5 @@ def car_delete(request,car_id):
     car= get_object_or_404(cars,pk=car_id,user= request.user)
     if request.method == "POST":
         car.delete()
-        return redirect('car_list')
+        return redirect('cars_list')
     return render(request,'car_confirm_delete.html',{'car':car})
