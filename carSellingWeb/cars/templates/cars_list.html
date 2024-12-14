@@ -12,8 +12,10 @@ Cars and companies
         <div class="card-body">
           <h5 class="card-title">{{car.car_name}}</h5>
           <p class="card-text">{{car.text}}</p>
+          {%if car.user == user %}
           <a href="{% url 'car_edit' car.id %}" class="btn btn-primary">Edit</a>
           <a href="{% url 'car_delete' car.id %}" class="btn btn-danger">Delete</a>
+          {% endif %}
         </div>
     </div>
     {% endfor %}

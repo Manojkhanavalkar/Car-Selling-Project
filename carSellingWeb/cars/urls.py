@@ -22,4 +22,5 @@ urlpatterns = [
     path('create/', views.car_create,name='car_create'),
     path('<int:car_id>/edit/', views.car_edit,name='car_edit'),
     path('<int:car_id>/delete/', views.car_delete,name='car_delete'),
+    path('register/', views.register,name='register'),
 ]
